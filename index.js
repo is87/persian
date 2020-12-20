@@ -118,6 +118,7 @@ function loadLessonNr(lessonNumber) {
     console.log(activeLesson);
     document.getElementById("lessonsMenuBackground").style.display = "none";
     sentences = data.lessons[lessonNumber].items;
+    sentences = sentences.sort(() => Math.random() - 0.5);
     numberOfSentences = sentences.length;
     document.getElementById("progress").style.width = "10%";
     sentenceNr = 0;
@@ -167,6 +168,7 @@ function loadWordType2(arr) {
 function optionClick(word) {
     if (word.innerText == correctSentence) {
         word.style.color = "green";
+        word.style.filter =  "drop-shadow(0 0 1vh green)";
         document.getElementById("progress").style.width = 10 + ((sentenceNr + 1) / numberOfSentences) * 90 + "%";
         document.getElementById("modal").style.display = "block";
         document.getElementById("lessonFinishedButton").style.display = "none";
@@ -179,6 +181,7 @@ function optionClick(word) {
     } else {
         errorsInLesson++;
         word.style.color = "darkred";
+        word.style.filter =  "drop-shadow(0 0 1vh darkred)";
     }
 }
 
@@ -188,7 +191,7 @@ function lessonFinished() {
         setCookie("lesson-" + activeLessonID, "PERFECT", 365);
         console.log("Perfect score");
     } else {
-        setCookie("lesson-" + activeLessonID, "DONE", 365);
+        if(getCookie("lesson-" + activeLessonID) != "PERFECT")setCookie("lesson-" + activeLessonID, "DONE", 365);
     }
 
 }
