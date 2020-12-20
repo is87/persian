@@ -1,0 +1,164 @@
+{
+    "lessons": [
+        {
+            "name": "Basics",
+            "id": "1",
+            "items": [
+                {
+                    "type": "1",
+                    "words": "man se ketãb dãram",
+                    "extraWords": "mã ketãbhã",
+                    "sentence": "Jag har tre böcker."
+                },
+                {
+                    "type": "1",
+                    "words": "hur mår ni",
+                    "extraWords": "vem är varför har",
+                    "sentence": "Hãl-e shomã chetor ast?"
+                },
+                {
+                    "type": "1",
+                    "words": "mã kheyli khub hastim",
+                    "extraWords": "shomã dãrim be yek",
+                    "sentence": "Vi mår mycket bra."
+                },
+                {
+                    "type": "1",
+                    "words": "ketãb -e man khub ast",
+                    "extraWords": "mã kheyli hastam mikonad",
+                    "sentence": "Min bok är bra."
+                }
+            ]
+        },
+        {
+            "name": "Bokstäver",
+            "id": "9",
+            "items": [
+                {
+                    "type": "2",
+                    "words": "ا",
+                    "extraWords": "ل ه ب",
+                    "sentence": "Alef"
+                },
+                {
+                    "type": "2",
+                    "words": "خ",
+                    "extraWords": "ح ج چ",
+                    "sentence": "Khe"
+                },
+                {
+                    "type": "2",
+                    "words": "س",
+                    "extraWords": "ی م ک",
+                    "sentence": "Sin"
+                }
+            ]
+        },
+        {
+            "name": "Klockan",
+            "id": "2",
+            "items": [
+                {
+                    "type": "1",
+                    "words": "sã'at se o nim",
+                    "extraWords": "chahãr daghighe panj",
+                    "sentence": "Klockan halv fyra"
+                },
+                {
+                    "type": "2",
+                    "words": "rob",
+                    "extraWords": "nim sã'at daghighe",
+                    "sentence": "Kvart"
+                },
+                {
+                    "type": "1",
+                    "words": "sã'at chand ast",
+                    "extraWords": "nim daghighe che",
+                    "sentence": "Vad är klockan?"
+                }
+            ]
+        },
+        {
+            "name": "Ezãfe",
+            "id": "3",
+            "items": [
+                {
+                    "type": "1",
+                    "words": "mãshin -e man",
+                    "extraWords": "-ye mã shomã",
+                    "sentence": "Min bil."
+                },
+                {
+                    "type": "1",
+                    "words": "khãne -ye bozorg -e to",
+                    "extraWords": "-ye -e man khãnevãde",
+                    "sentence": "Ditt stora hus."
+                },
+                {
+                    "type": "1",
+                    "words": "sag -e kuchik -e mãdar -e mã",
+                    "extraWords": "-ye -ye man bozorg",
+                    "sentence": "Vår mammas lilla hund."
+                }
+            ]
+        },
+        {
+            "name": "Färger",
+            "id": "4",
+            "items": [
+                {
+                    "type": "2",
+                    "words": "ghermez",
+                    "extraWords": "surati khãki zard",
+                    "sentence": "Röd"
+                },
+                {
+                    "type": "2",
+                    "words": "ãbi",
+                    "extraWords": "ghermez sabz sefid",
+                    "sentence": "Blå"
+                }
+            ]
+        },
+        {
+            "name": "Siffror",
+            "id": "5",
+            "startDate": "2020-12-20 16:00:00",
+            "items": [
+                {
+                    "type": "2",
+                    "words": "۲",
+                    "extraWords": "۳ ۵ ۷",
+                    "sentence": "Två"
+                },
+                {
+                    "type": "2",
+                    "words": "۵",
+                    "extraWords": "۷ ۴ ۰",
+                    "sentence": "Fem"
+                }
+            ]
+        },
+        {
+            "name": "Konjunktiv",
+            "id": "6",
+            "items": [
+                
+            ]
+        },
+        {
+            "name": "Rã",
+            "id": "7",
+            "items": [
+                
+            ]
+        },
+        {
+            "name": "Komparativ",
+            "id": "8",
+            "items": [
+                
+            ]
+        }
+    ]
+}
