@@ -117,6 +117,30 @@
                     "words": "ãbi",
                     "extraWords": "ghermez sabz sefid",
                     "sentence": "Blå"
+                },
+                {
+                    "type": "2",
+                    "words": "sabz",
+                    "extraWords": "siyãh ãbi sefid",
+                    "sentence": "Grön"
+                },
+                {
+                    "type": "2",
+                    "words": "siyãh",
+                    "extraWords": "sabz sefid zard",
+                    "sentence": "Svart"
+                },
+                {
+                    "type": "2",
+                    "words": "nãrenji",
+                    "extraWords": "banafsh zard ghermez",
+                    "sentence": "Orange"
+                },
+                {
+                    "type": "2",
+                    "words": "sefid",
+                    "extraWords": "siyãh ãbi khãki",
+                    "sentence": "Vit"
                 }
             ]
         },
