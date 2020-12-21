@@ -118,7 +118,7 @@ function loadLessonNr(lessonNumber) {
     console.log(activeLesson);
     document.getElementById("lessonsMenuBackground").style.display = "none";
     sentences = data.lessons[lessonNumber].items;
-    sentences = sentences.sort(() => Math.random() - 0.5);
+    if(data.lessons[lessonNumber].keepOrder != "true")sentences = sentences.sort(() => Math.random() - 0.5);
     numberOfSentences = sentences.length;
     document.getElementById("progress").style.width = "10%";
     sentenceNr = 0;

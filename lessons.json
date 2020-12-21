@@ -159,6 +159,31 @@
             "items": [
                 
             ]
+        },
+        {
+            "name": "22 december",
+            "id": "10",
+            "keepOrder": "true",
+            "items": [
+                {
+                    "type": "1",
+                    "words": "man fãrsi yãd migiram",
+                    "extraWords": "mikonam az mã shomã",
+                    "sentence": "Jag lär mig persiska."
+                },
+                {
+                    "type": "1",
+                    "words": "bã mardom az Irãn va Afghãnistãn",
+                    "extraWords": "be ketãb dar",
+                    "sentence": "Med människor från Iran och Aghanistan."
+                },
+                {
+                    "type": "2",
+                    "words": "mikhãham",
+                    "extraWords": "mikonam migiram midãnam",
+                    "sentence": "Jag vill"
+                }
+            ]
         }
     ]
 }
