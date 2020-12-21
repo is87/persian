@@ -182,6 +182,18 @@
                     "words": "mikhãham",
                     "extraWords": "mikonam migiram midãnam",
                     "sentence": "Jag vill"
+                },
+                {
+                    "type": "1",
+                    "words": "man mikhãham sohbat konam",
+                    "extraWords": "mikonam yãd ",
+                    "sentence": "Jag vill prata"
+                },
+                {
+                    "type": "1",
+                    "words": "man fãrsi yãd migiram chun ke man mikhãham dar murede ketãbe moghades sohbat konam",
+                    "extraWords": "",
+                    "sentence": "Jag lär mig persiska för att jag vill prata om Bibeln"
                 }
             ]
         }
