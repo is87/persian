@@ -141,6 +141,18 @@
                     "words": "sefid",
                     "extraWords": "siyãh ãbi khãki",
                     "sentence": "Vit"
+                },
+                {
+                    "type": "2",
+                    "words": "zard",
+                    "extraWords": "ãbi sabz khãkestãri",
+                    "sentence": "Gul"
+                },
+                {
+                    "type": "2",
+                    "words": "banafsh",
+                    "extraWords": "zard sabz sefid",
+                    "sentence": "Lila"
                 }
             ]
         },
