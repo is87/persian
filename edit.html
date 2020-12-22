@@ -5,23 +5,24 @@
     <title>Redigera databas</title>
     <meta charset="utf-8">
     <style>
-        table td, table td * {
-    vertical-align: top;
-}
+        table td,
+        table td * {
+            vertical-align: top;
+        }
 
-.active{
-    background-color: #0099cc;
-}
+        .active {
+            background-color: #0099cc;
+        }
 
-.inactive{
-    background-color: #ffffff;
-}
+        .inactive {
+            background-color: #ffffff;
+        }
     </style>
     <script>
         activeLesson = null;
         activeItem = null;
         hid = 0;
-        function gid(id){
+        function gid(id) {
             return document.getElementById(id);
         }
         function init() {
@@ -29,8 +30,22 @@
 
         }
         function loadJSON() {
-            var url = "https://is87.github.io/persian/lessons.json";
+            /*var url = "https://is87.github.io/persian/lessons.json";
             fetch(url)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (myJson) {
+                    data = myJson;
+                    showAll();
+                });*/
+
+            fetch("https://isak.pythonanywhere.com/persian/",
+                {
+                    method: "post",
+                    body: 'action=read',
+                    headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+                })
                 .then(function (response) {
                     return response.json();
                 })
@@ -40,11 +55,11 @@
                 });
         }
 
-        function showAll(){
+        function showAll() {
             gid("lessons").innerHTML = "";
-            for(i=0;i<data.lessons.length;i++){
-                gid("lessons").innerHTML += "<div class='inactive' data-id='"+i+"' onclick='showLesson(this);'>"+data.lessons[i].name+"</div>";
-                if(Number(data.lessons[i].id) > Number(hid))hid = data.lessons[i].id;
+            for (i = 0; i < data.lessons.length; i++) {
+                gid("lessons").innerHTML += "<div class='inactive' data-id='" + i + "' onclick='showLesson(this);'>" + data.lessons[i].name + "</div>";
+                if (Number(data.lessons[i].id) > Number(hid)) hid = data.lessons[i].id;
             }
             gid("lessons").innerHTML += "<button onclick='newLesson();'>Ny lektion</button>";
             gid("items").innerHTML = "";
@@ -53,40 +68,60 @@
             activeItem = null;
             gid("lessonInfo").innerHTML = "";
             gid("newLesson").innerHTML = "";
-            gid("src").innerText = JSON.stringify(data, null, '\t');
+            gid("src").value = JSON.stringify(data, null, 2);
         }
 
-        function showLesson(arr){
+
+        function showLesson(arr) {
             id = arr.getAttribute("data-id");
-            
-            for(i=0;i<gid("lessons").children.length-1;i++){
-                gid("lessons").children[i].className ="inactive";
+            showLessonNr(id);
+        }
+
+        function showLessonNr(arr) {
+            activeLesson = arr;
+            id = arr;
+
+            for (i = 0; i < gid("lessons").children.length - 1; i++) {
+                gid("lessons").children[i].className = "inactive";
             }
-            gid("lessons").children[id].className ="active";
+            gid("lessons").children[id].className = "active";
             gid("items").innerHTML = "";
             gid("itemData").innerHTML = "";
-            for(i=0;i<data.lessons[id].items.length;i++){
-                gid("items").innerHTML += "<div data-id='"+i+"' onclick='showItem(this);'>"+i+"</div>";
+            for (i = 0; i < data.lessons[id].items.length; i++) {
+                gid("items").innerHTML += "<div data-id='" + i + "' onclick='showItem(this);'>" + i + "</div>";
             }
-            gid("items").innerHTML += "<button  onclick=''>Ny övning</button>";
+            gid("items").innerHTML += "<button  onclick='newItem();'>Ny övning</button>";
             activeLesson = id;
             gid("lessonInfo").innerHTML = "<br><br>Vald lektion:<br><br>Namn: <input id='lessonName' type='text'><br><br>ID: <input id='lessonID' type='text'><br><br><button onclick='updateLesson();'>Spara ändringar</button>";
             gid("lessonName").value = data.lessons[id].name;
             gid("lessonID").value = data.lessons[id].id;
         }
 
-        function showItem(arr){
+        function showItem(arr) {
             id = arr.getAttribute("data-id");
-            activeItem = id;
-            showItemNr(activeItem);
+            showItemNr(id);
         }
 
-        function showItemNr(arr){
-            for(i=0;i<gid("items").children.length-1;i++){
-                gid("items").children[i].className ="inactive";
+        function newItem(){
+            var item = new Object();
+            item.type = 1;
+            item.words = "";
+            item.extraWords = "";
+            item.sentence = "";
+            data.lessons[activeLesson].items.push(item);
+            console.log(data.lessons[activeLesson].items.length-1);
+            showLessonNr(activeLesson);
+            showItemNr(data.lessons[activeLesson].items.length-1);
+        }
+
+        function showItemNr(arr) {
+            activeItem = arr;
+            id = arr;
+            for (i = 0; i < gid("items").children.length - 1; i++) {
+                gid("items").children[i].className = "inactive";
             }
-            gid("items").children[id].className ="active";
-            
+            gid("items").children[id].className = "active";
+
             gid("itemData").innerHTML = JSON.stringify(data.lessons[activeLesson].items[activeItem]);
             gid("itemData").innerHTML += "<br>Typ av övning: <select id='type'><option value='1'>Bygga mening</option><option value='2'>Välja alternativ</option></select>";
             gid("itemData").innerHTML += "<br><br>Rätt svar: <input id='answer' type='text'>";
@@ -97,30 +132,31 @@
             gid("answer").value = data.lessons[activeLesson].items[activeItem].words;
             gid("extra").value = data.lessons[activeLesson].items[activeItem].extraWords;
             gid("translation").value = data.lessons[activeLesson].items[activeItem].sentence;
-            
+
         }
 
-        function updateItem(){
+        function updateItem() {
             data.lessons[activeLesson].items[activeItem].type = gid("type").value;
             data.lessons[activeLesson].items[activeItem].words = gid("answer").value;
             data.lessons[activeLesson].items[activeItem].extraWords = gid("extra").value;
             data.lessons[activeLesson].items[activeItem].sentence = gid("translation").value;
             showItemNr(activeItem);
+            gid("src").value = JSON.stringify(data, null, 2);
         }
 
-        function updateLesson(){
+        function updateLesson() {
             data.lessons[activeLesson].name = gid("lessonName").value;
             data.lessons[activeLesson].id = gid("lessonID").value;
             showAll();
         }
 
-        function newLesson(){
+        function newLesson() {
             var newID = 1;
             newID = Number(newID) + Number(hid);
-            gid("newLesson").innerHTML = "<br><br>Skapa ny lektion:<br><br>Namn: <input value='Skriv namn här' id='newLessonName' type='text'><br><br>ID: <input value='"+newID+"' id='newLessonID' type='text'><br><br><button onclick='makeNewLesson();'>Skapa lektion</button>";
+            gid("newLesson").innerHTML = "<br><br>Skapa ny lektion:<br><br>Namn: <input value='Skriv namn här' id='newLessonName' type='text'><br><br>ID: <input value='" + newID + "' id='newLessonID' type='text'><br><br><button onclick='makeNewLesson();'>Skapa lektion</button>";
         }
 
-        function makeNewLesson(){
+        function makeNewLesson() {
             var l = new Object();
             l.name = gid("newLessonName").value;
             l.id = gid("newLessonID").value;
@@ -128,15 +164,40 @@
             data.lessons.push(l);
             showAll();
         }
+
+        function saveToCloud() {
+            document.getElementById("saveStatus").innerHTML = "";
+            fetch("https://isak.pythonanywhere.com/persian/",
+                {
+                    method: "post",
+                    body: "action=write&password=" + document.getElementById("dbPassword").value + "&data=" + JSON.stringify(data, null, 2),
+                    headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+                })
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (data) {
+                    document.getElementById("saveStatus").innerHTML = data;
+                });
+        }
     </script>
 </head>
 
 <body onload="init();">
-    <table border="1" style="border: 1px solid #ccc; border-collapse:collapse;" width="100%"><tr><td id="lessons" width="15%"></td><td id="items" width="10%"></td><td id="itemData"></td></tr></table>
+    <table border="1" style="border: 1px solid #ccc; border-collapse:collapse;" width="100%">
+        <tr>
+            <td id="lessons" width="15%"></td>
+            <td id="items" width="10%"></td>
+            <td id="itemData"></td>
+        </tr>
+    </table>
 
     <div id="lessonInfo"></div>
     <div id="newLesson"></div>
-    <div id="src"></div>
+    <textarea id="src" rows="20" cols="40">Info</textarea>
+    <br><br><input type="password" id="dbPassword"><br>
+    <button onclick="">Ladda upp</button>
+    <span id="saveStatus"></span>
 </body>
 
 </html>
