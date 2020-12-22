@@ -197,7 +197,7 @@
             ]
         },
         {
-            "name": "22 december",
+            "name": "Meningar 1",
             "id": "10",
             "keepOrder": "true",
             "items": [
@@ -236,6 +236,84 @@
                     "words": "man fãrsi yãd migiram chun man mikhãham bã mardom az Irãn va Afghãnistan dar murede ketãb -e moghades sohbat konam",
                     "extraWords": "gorbe",
                     "sentence": "Jag lär mig persiska för att jag vill prata med människor från Iran och Aghanistan om Bibeln"
+                }
+            ]
+        },
+        {
+            "name": "Väder/Årstider",
+            "id": "11",
+            "items": [
+                {
+                    "type": "2",
+                    "words": "barf",
+                    "extraWords": "bãrãn abr ãftãb",
+                    "sentence": "Snö"
+                },
+                {
+                    "type": "2",
+                    "words": "bãrãn",
+                    "extraWords": "barf abr ãftãb",
+                    "sentence": "Regn"
+                },
+                {
+                    "type": "2",
+                    "words": "abr",
+                    "extraWords": "barf bãrãn ãftãb",
+                    "sentence": "Moln"
+                },
+                {
+                    "type": "2",
+                    "words": "ãftãb",
+                    "extraWords": "barf bãrãn abr",
+                    "sentence": "Sol"
+                },
+                {
+                    "type": "2",
+                    "words": "bahãr",
+                    "extraWords": "tãbestãn pãiz zemestãn",
+                    "sentence": "Vår"
+                },
+                {
+                    "type": "2",
+                    "words": "tãbestãn",
+                    "extraWords": "bahãr pãiz zemestãn",
+                    "sentence": "Sommar"
+                },
+                {
+                    "type": "2",
+                    "words": "pãiz",
+                    "extraWords": "bahãr tãbestãn zemestãn",
+                    "sentence": "Höst"
+                },
+                {
+                    "type": "2",
+                    "words": "zemestãn",
+                    "extraWords": "bahãr tãbestãn pãiz",
+                    "sentence": "Vinter"
+                },
+                {
+                    "type": "2",
+                    "words": "fasl",
+                    "extraWords": "havã tãbestãn sard",
+                    "sentence": "Årstid"
+                },
+                {
+                    "type": "2",
+                    "words": "havã",
+                    "extraWords": "bahãr fasl pãiz",
+                    "sentence": "Väder"
+                },
+                {
+                    "type": "2",
+                    "words": "garm",
+                    "extraWords": "bahãr fasl sard",
+                    "sentence": "Varmt"
+                },
+                {
+                    "type": "2",
+                    "words": "sard",
+                    "extraWords": "garm havã pãiz",
+                    "sentence": "Kallt"
                 }
             ]
         }
